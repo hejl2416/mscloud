@@ -21,7 +21,8 @@ public class PaymentController
     private PaymentService paymentService;
 
     @PostMapping(value = "/payment/create")
-    public CommonResult create(Payment payment)
+//    加上@RequestBody会让客户插入成功的serial，但8001会插入失败
+    public CommonResult create(@RequestBody Payment payment)
     {
         int result = paymentService.create(payment);
         log.info("*****插入操作返回结果:" + result);
