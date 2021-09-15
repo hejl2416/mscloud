@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
+
 /**
  * @Author: hjle
  * @Date: 2021/09/09/10:31
@@ -23,7 +25,7 @@ public class OrderController
     // 通过在eureka上注册过的微服务名称调用
     public static final String PaymentSrv_URL = "http://CLOUD-PAYMENT-SERVICE";
 
-    @Autowired
+    @Resource
     private RestTemplate restTemplate;
 
     @GetMapping("/consumer/payment/create") //客户端用浏览器是get请求，但是底层实质发送post调用服务端8001
